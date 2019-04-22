@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Tech Com</string>
+    <string name="but_1_name">Parse</string>
+    <string name="but_2_name">Send</string>
+</resources>
