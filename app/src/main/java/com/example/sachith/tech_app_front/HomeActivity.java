@@ -2,8 +2,11 @@ package com.example.sachith.tech_app_front;
 
 import android.content.DialogInterface;
 import android.icu.text.StringPrepParseException;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,9 +14,11 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,35 +62,69 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.add_company);
 
-        requestQueue = Volley.newRequestQueue(this);
-        builder = new AlertDialog.Builder(this);
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation_menu);
+        bottomNav.setOnNavigationItemSelectedListener(navListner);
 
-        initComponent();
-
-        buttonParse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                parseJson();
-            }
-        });
-
-        buttonSend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               if(checkInputs()){
-                   companyCreate();
-               }
-            }
-        });
-
-        /*
-         * initiate TextInputEditText Listerner
-         * after clicked textInputEditText check if it has error or not
-         */
-        initTextChangeListerner();
+//        requestQueue = Volley.newRequestQueue(this);
+//        builder = new AlertDialog.Builder(this);
+//
+//        initComponent();
+//
+//        buttonParse.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                parseJson();
+//            }
+//        });
+//
+//        buttonSend.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//               if(checkInputs()){
+//                   companyCreate();
+//               }
+//            }
+//        });
+//
+//        /*
+//         * initiate TextInputEditText Listerner
+//         * after clicked textInputEditText check if it has error or not
+//         */
+//        initTextChangeListerner();
     }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener navListner =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Fragment selectedFragment = null;
+
+                    switch (item.getItemId()) {
+                        case R.id.nav_home:
+                            selectedFragment = new ViewCompany();
+                            break;
+                        case R.id.nav_search:
+                            selectedFragment = new SearchCompany();
+                            break;
+                        case R.id.nav_edit:
+                            selectedFragment = new UpdateCompany();
+                            break;
+                        case R.id.nav_add:
+                            selectedFragment = new UpdateCompany();
+                            break;
+                        case R.id.nav_view:
+                            selectedFragment = new ViewCompany();
+                            break;
+
+                    }
+
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            selectedFragment).commit();
+                    return true;
+                }
+            };
 
     /*
      * These method used for validate Listerner
