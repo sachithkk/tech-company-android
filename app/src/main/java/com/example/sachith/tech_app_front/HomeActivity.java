@@ -1,7 +1,6 @@
 package com.example.sachith.tech_app_front;
 
 import android.content.DialogInterface;
-import android.icu.text.StringPrepParseException;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TextInputEditText;
@@ -13,33 +12,22 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Switch;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.example.sachith.tech_app_front.enums.EndPoints;
-import com.example.sachith.tech_app_front.validateInpits.TextValidator;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -62,10 +50,13 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_company);
+        setContentView(R.layout.home);
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation_menu);
         bottomNav.setOnNavigationItemSelectedListener(navListner);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                new ViewCompany()).commit();
 
 //        requestQueue = Volley.newRequestQueue(this);
 //        builder = new AlertDialog.Builder(this);
@@ -112,7 +103,7 @@ public class HomeActivity extends AppCompatActivity {
                             selectedFragment = new UpdateCompany();
                             break;
                         case R.id.nav_add:
-                            selectedFragment = new UpdateCompany();
+                            selectedFragment = new AddCompany();
                             break;
                         case R.id.nav_view:
                             selectedFragment = new ViewCompany();
