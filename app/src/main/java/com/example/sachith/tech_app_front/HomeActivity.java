@@ -13,6 +13,7 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.sachith.tech_app_front.enums.EndPoints;
 
 import org.json.JSONArray;
@@ -52,16 +54,20 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
 
+        requestQueue = Volley.newRequestQueue(this);
+        builder = new AlertDialog.Builder(this);
+
+//        initComponent();
+//
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation_menu);
         bottomNav.setOnNavigationItemSelectedListener(navListner);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new ViewCompany()).commit();
 
-//        requestQueue = Volley.newRequestQueue(this);
-//        builder = new AlertDialog.Builder(this);
 //
-//        initComponent();
+//
+
 //
 //        buttonParse.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -78,12 +84,19 @@ public class HomeActivity extends AppCompatActivity {
 //               }
 //            }
 //        });
-//
+//            buttonSend.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    if(checkInputs()){
+//                        companyCreate();
+//                    }
+//                }
+//            });
 //        /*
 //         * initiate TextInputEditText Listerner
 //         * after clicked textInputEditText check if it has error or not
 //         */
-//        initTextChangeListerner();
+
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListner =
@@ -284,14 +297,14 @@ public class HomeActivity extends AppCompatActivity {
 
     public void initComponent(){
         //textView    = findViewById(R.id.result);
-        buttonParse      = findViewById(R.id.btn_1);
-        companyName = findViewById(R.id.company_name);
-        city        = findViewById(R.id.company_city);
-        address     = findViewById(R.id.company_address);
-        buttonSend  = findViewById(R.id.btn_2);
-        c_name = findViewById(R.id.child_name);
-        c_city = findViewById(R.id.child_city);
-        c_address = findViewById(R.id.child_address);
+//        buttonParse      = findViewById(R.id.btn_1);
+//        companyName = findViewById(R.id.company_name);
+//        city        = findViewById(R.id.company_city);
+//        address     = findViewById(R.id.company_address);
+//        buttonSend  = findViewById(R.id.btn_2);
+//        c_name = findViewById(R.id.child_name);
+//        c_city = findViewById(R.id.child_city);
+//        c_address = findViewById(R.id.child_address);
     }
 
     private void initTextChangeListerner(){

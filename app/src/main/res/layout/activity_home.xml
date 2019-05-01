@@ -11,7 +11,6 @@
         android:id="@+id/company_name"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_below="@+id/result"
         android:layout_centerHorizontal="true"
         app:errorEnabled="true">
 
