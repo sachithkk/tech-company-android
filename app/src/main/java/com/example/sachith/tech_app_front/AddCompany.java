@@ -169,8 +169,11 @@ public class AddCompany extends Fragment{
 
         JSONObject jsonObject = new JSONObject(hm);
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, EndPoints.CREATE_COMPANY.getUrl(),
-                jsonObject, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.POST,
+                EndPoints.CREATE_COMPANY.getUrl(),
+                jsonObject,
+                new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
