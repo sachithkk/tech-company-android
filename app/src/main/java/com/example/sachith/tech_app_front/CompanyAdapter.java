@@ -3,6 +3,7 @@ package com.example.sachith.tech_app_front;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,16 +17,22 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.ViewHold
 
     private Context context;
     private List<Company> list;
+    private int layout ;
 
-    public CompanyAdapter(Context context, List<Company> list) {
+    public CompanyAdapter(int layout, Context context, List<Company> list) {
         this.context = context;
         this.list = list;
+        this.layout = layout;
+    }
+
+    public CompanyAdapter(int layout) {
+        this.layout = layout;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.single_company , parent, false);
+        View v = LayoutInflater.from(context).inflate(layout, parent, false);
         return new ViewHolder(v);
     }
 

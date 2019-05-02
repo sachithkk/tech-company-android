@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/main_name"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Company Name "
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/btn_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_edit_black_24dp"
+            android:layout_gravity="right"/>
+
+        <ImageButton
+            android:id="@+id/btn_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_delete_black_24dp"
+            android:layout_gravity="right"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/main_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Address "
+        />
+
+    <TextView
+        android:id="@+id/main_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="City "
+        />
+
+
+
+</LinearLayout>

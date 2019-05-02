@@ -39,7 +39,6 @@ import java.util.List;
 public class ViewCompany extends Fragment {
 
     private RecyclerView mList;
-
     private LinearLayoutManager linearLayoutManager;
     private DividerItemDecoration dividerItemDecoration;
     private List<Company> companyList;
@@ -53,7 +52,7 @@ public class ViewCompany extends Fragment {
         mList = view.findViewById(R.id.company_list);
 
         companyList = new ArrayList<>();
-        adapter = new CompanyAdapter(getContext(), companyList);
+        adapter = new CompanyAdapter(R.layout.single_company, getContext(), companyList);
 
         linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -65,8 +64,6 @@ public class ViewCompany extends Fragment {
         mList.setAdapter(adapter);
 
         getData();
-
-
 
         return view;
     }
@@ -90,13 +87,17 @@ public class ViewCompany extends Fragment {
                             for(int i=0; i < array.length(); i++) {
                                 JSONObject object = array.getJSONObject(i);
 
-                                Company company = new Company();
+                                if(object.getString("status").toString().equalsIgnoreCase("ACTIVE")) {
+                                    Company company = new Company();
 
-                                company.setName(object.getString("name"));
-                                company.setAddress(object.getString("address"));
-                                company.setCity(object.getString("city"));
+                                    company.setName(object.getString("name"));
+                                    company.setAddress(object.getString("address"));
+                                    company.setCity(object.getString("city"));
 
-                                companyList.add(company);
+                                    companyList.add(company);
+                                }
+
+
                             }
 
                         } catch (JSONException e) {
