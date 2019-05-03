@@ -56,7 +56,7 @@ public class AddCompany extends Fragment{
         builder = new AlertDialog.Builder(getContext());
 
         View view = inflater.inflate(R.layout.activity_home, container,false);
-        buttonParse      = view.findViewById(R.id.btn_1);
+        //buttonParse      = view.findViewById(R.id.btn_1);
         companyName      = view.findViewById(R.id.company_name);
         city             = view.findViewById(R.id.company_city);
         address          = view.findViewById(R.id.company_address);
@@ -65,12 +65,12 @@ public class AddCompany extends Fragment{
         c_city           = view.findViewById(R.id.child_city);
         c_address        = view.findViewById(R.id.child_address);
 
-        buttonParse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                parseJson();
-            }
-        });
+//        buttonParse.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                parseJson();
+//            }
+//        });
 
         buttonSend.setOnClickListener(new View.OnClickListener() {
             @Override
