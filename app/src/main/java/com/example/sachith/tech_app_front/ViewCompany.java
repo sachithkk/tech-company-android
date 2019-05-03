@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -19,8 +20,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -48,15 +51,14 @@ public class ViewCompany extends Fragment implements CompanyAdapter.OnItemClickL
     private DividerItemDecoration dividerItemDecoration;
     private List<Company> companyList;
     private CompanyAdapter adapter;
-    private Dialog dialog;
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.view_company, container, false);
-//        customView = inflater.inflate(R.layout.activity_2,container,false);
+        View popUp = inflater.inflate(R.layout.activity_2,container,false);
 
-        dialog = new Dialog(getContext());
         mList = view.findViewById(R.id.company_list);
 
         companyList = new ArrayList<>();
@@ -100,7 +102,8 @@ public class ViewCompany extends Fragment implements CompanyAdapter.OnItemClickL
 
                                     company.setName(object.getString("name"));
                                     company.setAddress(object.getString("address"));
-                                    //company.setCity(object.getString("city"));
+                                    company.setContactNum(object.getString("contactNumber"));
+                                    company.setWeb(object.getString("website"));
 
                                     companyList.add(company);
                                 }
@@ -149,13 +152,17 @@ public class ViewCompany extends Fragment implements CompanyAdapter.OnItemClickL
     @Override
     public void onItemClick(int posistion) {
 
-//        View companyPopup = LayoutInflater.from(getActivity()).inflate(R.layout.activity_2, null);
-        dialog.setContentView(R.layout.activity_2);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.show();
+        Company clickedCompany = companyList.get(posistion);
 
-//        Intent intent = new Intent(getContext() , Activity2.class);
-//        startActivity(intent);
-        //Toast.makeText(getContext(), "Cliked", Toast.LENGTH_SHORT).show();
+        Activity2 activity2 = new Activity2();
+        Bundle bundle = new Bundle();
+        bundle.putString("name" , clickedCompany.getName());
+        bundle.putString("address" , clickedCompany.getAddress());
+        bundle.putString("contactNum",clickedCompany.getContactNum());
+        bundle.putString("web" , clickedCompany.getWeb());
+        bundle.putString("description" , clickedCompany.getDescription());
+        activity2.setArguments(bundle);
+        activity2.show(getFragmentManager(),"My dialog");
+
     }
 }
