@@ -1,8 +1,12 @@
 package com.example.sachith.tech_app_front;
 
+import android.app.Dialog;
 import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,6 +20,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -36,23 +41,26 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ViewCompany extends Fragment {
+public class ViewCompany extends Fragment implements CompanyAdapter.OnItemClickListener{
 
     private RecyclerView mList;
     private LinearLayoutManager linearLayoutManager;
     private DividerItemDecoration dividerItemDecoration;
     private List<Company> companyList;
-    private RecyclerView.Adapter adapter;
+    private CompanyAdapter adapter;
+    private Dialog dialog;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.view_company, container, false);
+//        customView = inflater.inflate(R.layout.activity_2,container,false);
 
+        dialog = new Dialog(getContext());
         mList = view.findViewById(R.id.company_list);
 
         companyList = new ArrayList<>();
-        adapter = new CompanyAdapter(R.layout.single_company, getContext(), companyList);
+
 
         linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -61,7 +69,7 @@ public class ViewCompany extends Fragment {
         mList.setHasFixedSize(true);
         mList.setLayoutManager(linearLayoutManager);
         mList.addItemDecoration(dividerItemDecoration);
-        mList.setAdapter(adapter);
+
 
         getData();
 
@@ -92,13 +100,17 @@ public class ViewCompany extends Fragment {
 
                                     company.setName(object.getString("name"));
                                     company.setAddress(object.getString("address"));
-                                    company.setCity(object.getString("city"));
+                                    //company.setCity(object.getString("city"));
 
                                     companyList.add(company);
                                 }
 
 
                             }
+
+                            adapter = new CompanyAdapter(R.layout.single_company, getContext(), companyList);
+                            mList.setAdapter(adapter);
+                            adapter.setOnItemClickListener(ViewCompany.this);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -134,4 +146,16 @@ public class ViewCompany extends Fragment {
     }
 
 
+    @Override
+    public void onItemClick(int posistion) {
+
+//        View companyPopup = LayoutInflater.from(getActivity()).inflate(R.layout.activity_2, null);
+        dialog.setContentView(R.layout.activity_2);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+
+//        Intent intent = new Intent(getContext() , Activity2.class);
+//        startActivity(intent);
+        //Toast.makeText(getContext(), "Cliked", Toast.LENGTH_SHORT).show();
+    }
 }

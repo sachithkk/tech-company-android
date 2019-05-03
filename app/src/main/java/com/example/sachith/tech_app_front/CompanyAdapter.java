@@ -18,6 +18,15 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.ViewHold
     private Context context;
     private List<Company> list;
     private int layout ;
+    private OnItemClickListener mListener;
+
+    public interface OnItemClickListener{
+        void onItemClick(int posistion);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener){
+        mListener = onItemClickListener;
+    }
 
     public CompanyAdapter(int layout, Context context, List<Company> list) {
         this.context = context;
@@ -42,7 +51,7 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.ViewHold
 
             holder.txt_name.setText("Name : " + company.getName());
             holder.txt_address.setText("Address : " + company.getAddress());
-            holder.txt_city.setText("City : " + company.getCity());
+            //holder.txt_city.setText("City : " + company.getCity());
     }
 
     @Override
@@ -59,6 +68,18 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.ViewHold
             txt_name = itemView.findViewById(R.id.main_name);
             txt_address = itemView.findViewById(R.id.main_address);
             txt_city = itemView.findViewById(R.id.main_city);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(mListener != null){
+                        int position = getAdapterPosition();
+                        if(position != RecyclerView.NO_POSITION){
+                            mListener.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 }

@@ -86,7 +86,7 @@ public class UpdateCompany extends Fragment {
 
                                     company.setName(object.getString("name"));
                                     company.setAddress(object.getString("address"));
-                                    company.setCity(object.getString("city"));
+                                    //company.setCity(object.getString("city"));
 
                                     companyList.add(company);
                                 }
