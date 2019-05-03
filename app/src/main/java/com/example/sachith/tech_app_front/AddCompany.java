@@ -42,9 +42,9 @@ public class AddCompany extends Fragment{
     //private static TextView textView;
     private static Button buttonParse , buttonSend;
 
-    private static TextInputLayout companyName,city,address;
+    private static TextInputLayout companyName,website,address,companyDescription,companyContact;
     private static AlertDialog.Builder builder;
-    private static TextInputEditText c_name,c_city,c_address;
+    private static TextInputEditText c_name,c_webSite,c_address,c_description,c_contact;
 
     private static RequestQueue requestQueue;
 
@@ -58,12 +58,16 @@ public class AddCompany extends Fragment{
         View view = inflater.inflate(R.layout.activity_home, container,false);
         //buttonParse      = view.findViewById(R.id.btn_1);
         companyName      = view.findViewById(R.id.company_name);
-        city             = view.findViewById(R.id.company_city);
+        website             = view.findViewById(R.id.company_website);
         address          = view.findViewById(R.id.company_address);
+        companyDescription = view.findViewById(R.id.company_description);
+        companyContact   = view.findViewById(R.id.company_contact);
         buttonSend       = view.findViewById(R.id.btn_2);
         c_name           = view.findViewById(R.id.child_name);
-        c_city           = view.findViewById(R.id.child_city);
+        c_webSite           = view.findViewById(R.id.child_website);
         c_address        = view.findViewById(R.id.child_address);
+        c_description    = view.findViewById(R.id.child_description);
+        c_contact        = view.findViewById(R.id.child_contact);
 
 //        buttonParse.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -101,10 +105,10 @@ public class AddCompany extends Fragment{
 
     private void validateEditCity(Editable s) {
         if (TextUtils.isEmpty(s)) {
-            city.setError("This field required");
+            website.setError("This field required");
         }
         else{
-            city.setError(null);
+            website.setError(null);
         }
     }
 
@@ -114,6 +118,24 @@ public class AddCompany extends Fragment{
         }
         else{
             address.setError(null);
+        }
+    }
+
+    private void validateEditDescription(Editable s) {
+        if (TextUtils.isEmpty(s)) {
+            companyDescription.setError("This field required");
+        }
+        else{
+            companyDescription.setError(null);
+        }
+    }
+
+    private void validateEditCompanyContact(Editable s) {
+        if (TextUtils.isEmpty(s)) {
+            companyContact.setError("This field required");
+        }
+        else{
+            companyContact.setError(null);
         }
     }
 
@@ -133,8 +155,8 @@ public class AddCompany extends Fragment{
 
     private boolean validateCity(){
 
-        if(city.getEditText().getText().toString().trim().isEmpty()){
-            city.setError("This field required");
+        if(website.getEditText().getText().toString().trim().isEmpty()){
+            website.setError("This field required");
             return false;
         }
         return true;
@@ -151,8 +173,29 @@ public class AddCompany extends Fragment{
 
     }
 
+
+    private boolean validateCompanyDescription(){
+
+        if(companyDescription.getEditText().getText().toString().trim().isEmpty()){
+            companyDescription.setError("This field required");
+            return false;
+        }
+        return true;
+
+    }
+
+    private boolean validateCompanyContact(){
+
+        if(companyContact.getEditText().getText().toString().trim().isEmpty()){
+            companyContact.setError("This field required");
+            return false;
+        }
+        return true;
+
+    }
+
     private boolean checkInputs(){
-        if(validateCompanyName() & validateCity() & validateAddress()){
+        if(validateCompanyName() & validateCity() & validateAddress() & validateCompanyDescription() & validateCompanyContact()){
             return true;
         }
         else{
@@ -160,12 +203,16 @@ public class AddCompany extends Fragment{
         }
     }
 
+
+
     private void companyCreate(){
 
         HashMap<String , String> hm = new HashMap<>();
         hm.put("companyName",companyName.getEditText().getText().toString());
-        hm.put("city",city.getEditText().getText().toString());
+        hm.put("website",website.getEditText().getText().toString());
         hm.put("address",address.getEditText().getText().toString());
+        hm.put("description" , companyDescription.getEditText().getText().toString());
+        hm.put("contactNumber" , companyContact.getEditText().getText().toString());
 
         JSONObject jsonObject = new JSONObject(hm);
 
@@ -186,12 +233,16 @@ public class AddCompany extends Fragment{
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 companyName.getEditText().setText("");
-                                city.getEditText().setText("");
+                                website.getEditText().setText("");
                                 address.getEditText().setText("");
+                                companyDescription.getEditText().setText("");
+                                companyContact.getEditText().setText("");
 
                                 companyName.setError(null);
-                                city.setError(null);
+                                website.setError(null);
                                 address.setError(null);
+                                companyDescription.setError(null);
+                                companyContact.setError(null);
                             }
                         });
                         AlertDialog alert = builder.create();
@@ -276,7 +327,7 @@ public class AddCompany extends Fragment{
             }
         });
 
-        c_city.addTextChangedListener(new TextWatcher() {
+        c_webSite.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -307,6 +358,40 @@ public class AddCompany extends Fragment{
             @Override
             public void afterTextChanged(Editable s) {
                 validateEditAddress(s);
+            }
+        });
+
+        c_description.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                validateEditDescription(s);
+            }
+        });
+
+        c_contact.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                validateEditCompanyContact(s);
             }
         });
     }

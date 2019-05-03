@@ -30,31 +30,12 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/company_city"
+            android:id="@+id/company_address"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginTop="10dp"
             android:layout_below="@+id/company_name"
             android:layout_centerHorizontal="true"
-            app:errorEnabled="true">
-
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/child_city"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="City"
-                android:inputType="text"
-                android:textSize="20sp" />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/company_address"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_below="@+id/company_city"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
             app:errorEnabled="true">
 
             <android.support.design.widget.TextInputEditText
@@ -68,10 +49,48 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
+            android:id="@+id/company_website"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_below="@+id/company_address"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            app:errorEnabled="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/child_website"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Domain Name"
+                android:inputType="text"
+                android:textSize="20sp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/company_contact"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_below="@+id/company_website"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            app:errorEnabled="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/child_contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Contact Number"
+                android:inputType="text"
+                android:textSize="20sp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
             android:id="@+id/company_description"
             android:layout_width="match_parent"
             android:layout_height="113dp"
-            android:layout_below="@+id/company_address"
+            android:layout_below="@+id/company_contact"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             app:errorEnabled="true">
@@ -91,7 +110,7 @@
         <Button
             android:id="@+id/btn_2"
             android:layout_width="162dp"
-            android:layout_marginTop="400dp"
+            android:layout_marginTop="500dp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"

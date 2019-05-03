@@ -104,6 +104,7 @@ public class ViewCompany extends Fragment implements CompanyAdapter.OnItemClickL
                                     company.setAddress(object.getString("address"));
                                     company.setContactNum(object.getString("contactNumber"));
                                     company.setWeb(object.getString("website"));
+                                    company.setDescription(object.getString(""));
 
                                     companyList.add(company);
                                 }
