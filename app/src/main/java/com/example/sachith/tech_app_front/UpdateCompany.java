@@ -29,13 +29,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UpdateCompany extends Fragment {
+public class UpdateCompany extends Fragment implements CompanyAdapter.OnItemClickListener{
 
     private RecyclerView mList;
     private LinearLayoutManager linearLayoutManager;
     private DividerItemDecoration dividerItemDecoration;
     private List<Company> companyList;
-    private RecyclerView.Adapter adapter;
+    private CompanyAdapter adapter;
 
     @Nullable
     @Override
@@ -86,11 +86,16 @@ public class UpdateCompany extends Fragment {
 
                                     company.setName(object.getString("name"));
                                     company.setAddress(object.getString("address"));
-                                    //company.setCity(object.getString("city"));
+                                    company.setContactNum(object.getString("contactNumber"));
+                                    company.setWeb(object.getString("website"));
+                                    company.setDescription(object.getString("description"));
 
                                     companyList.add(company);
                                 }
 
+                                adapter = new CompanyAdapter(R.layout.single_company_edit, getContext(), companyList);
+                                mList.setAdapter(adapter);
+                                adapter.setOnItemClickListener(UpdateCompany.this);
 
                             }
 
@@ -126,4 +131,22 @@ public class UpdateCompany extends Fragment {
     private void toastMessage(String message){
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void onItemClick(int posistion) {
+
+        Company clickedCompany = companyList.get(posistion);
+
+        Activity2 activity2 = new Activity2();
+        Bundle bundle = new Bundle();
+        bundle.putString("name" , clickedCompany.getName());
+        bundle.putString("address" , clickedCompany.getAddress());
+        bundle.putString("contactNum",clickedCompany.getContactNum());
+        bundle.putString("web" , clickedCompany.getWeb());
+        bundle.putString("description" , clickedCompany.getDescription());
+        activity2.setArguments(bundle);
+        activity2.show(getFragmentManager(),"My dialog");
+
+    }
 }
+

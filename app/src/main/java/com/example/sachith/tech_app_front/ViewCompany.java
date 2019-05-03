@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.DividerItemDecoration;
@@ -104,7 +105,7 @@ public class ViewCompany extends Fragment implements CompanyAdapter.OnItemClickL
                                     company.setAddress(object.getString("address"));
                                     company.setContactNum(object.getString("contactNumber"));
                                     company.setWeb(object.getString("website"));
-                                    company.setDescription(object.getString(""));
+                                    company.setDescription(object.getString("description"));
 
                                     companyList.add(company);
                                 }

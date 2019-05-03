@@ -51,7 +51,7 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.ViewHold
 
             holder.txt_name.setText("Name : " + company.getName());
             holder.txt_address.setText("Address : " + company.getAddress());
-            //holder.txt_city.setText("City : " + company.getCity());
+            holder.txt_web.setText("Web Site : " + company.getWeb());
     }
 
     @Override
@@ -60,14 +60,14 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView txt_name, txt_address, txt_city;
+        public TextView txt_name, txt_address, txt_web;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             txt_name = itemView.findViewById(R.id.main_name);
             txt_address = itemView.findViewById(R.id.main_address);
-            txt_city = itemView.findViewById(R.id.main_city);
+            txt_web = itemView.findViewById(R.id.txt_web);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
