@@ -91,7 +91,7 @@ public class AddCompany extends Fragment{
     }
 
     /*
-     * These method used for validate Listerner
+     * These method used for validate Listener
      *
      * */
     private void validateEditCompany(Editable s) {
