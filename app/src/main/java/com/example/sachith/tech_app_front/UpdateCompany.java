@@ -84,6 +84,7 @@ public class UpdateCompany extends Fragment implements CompanyAdapter.OnItemClic
                                 if(object.getString("status").toString().equalsIgnoreCase("ACTIVE")) {
                                     Company company = new Company();
 
+                                    company.setId(object.getInt("id"));
                                     company.setName(object.getString("name"));
                                     company.setAddress(object.getString("address"));
                                     company.setContactNum(object.getString("contactNumber"));
@@ -139,6 +140,7 @@ public class UpdateCompany extends Fragment implements CompanyAdapter.OnItemClic
 
         EditCompanyDialog companyDialog = new EditCompanyDialog();
         Bundle bundle = new Bundle();
+        bundle.putInt("id" , clickedCompany.getId());
         bundle.putString("name" , clickedCompany.getName());
         bundle.putString("address" , clickedCompany.getAddress());
         bundle.putString("contactNum",clickedCompany.getContactNum());
