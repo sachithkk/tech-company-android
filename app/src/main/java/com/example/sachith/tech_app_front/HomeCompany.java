@@ -33,7 +33,7 @@ public class HomeCompany extends AppCompatActivity {
         search_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent.putExtra("FRAGMENT_NAME", "search");
+                intent.putExtra("FRAGMENT_NAME", R.id.nav_search);
                 startOtherActivity();
             }
         });
@@ -41,7 +41,7 @@ public class HomeCompany extends AppCompatActivity {
         edit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent.putExtra("FRAGMENT_NAME", "edit");
+                intent.putExtra("FRAGMENT_NAME", R.id.nav_edit);
                 startOtherActivity();
             }
         });
@@ -49,7 +49,7 @@ public class HomeCompany extends AppCompatActivity {
         view_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent.putExtra("FRAGMENT_NAME", "list");
+                intent.putExtra("FRAGMENT_NAME", R.id.nav_view);
                 startOtherActivity();
             }
         });
@@ -57,7 +57,7 @@ public class HomeCompany extends AppCompatActivity {
         add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent.putExtra("FRAGMENT_NAME", "add");
+                intent.putExtra("FRAGMENT_NAME", R.id.nav_add);
                 startOtherActivity();
             }
         });

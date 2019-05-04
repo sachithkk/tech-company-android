@@ -46,7 +46,7 @@
     <Button
         android:id="@+id/btn_home_edit_company"
         android:paddingLeft="10dp"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:layout_below="@id/btn_home_add_company"
         android:layout_width="180dp"
         android:layout_height="wrap_content"

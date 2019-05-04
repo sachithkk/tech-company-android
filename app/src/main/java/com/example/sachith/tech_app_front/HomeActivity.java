@@ -49,6 +49,7 @@ public class HomeActivity extends AppCompatActivity {
     private static TextInputEditText c_name,c_city,c_address;
 
     private static RequestQueue requestQueue;
+    private Fragment selectedFragment =null;
 
 
     @Override
@@ -63,60 +64,46 @@ public class HomeActivity extends AppCompatActivity {
         bottomNav.setOnNavigationItemSelectedListener(navListner);
 
         Intent intent2 = getIntent();
-        String passFragmentKeyword = intent2.getStringExtra("FRAGMENT_NAME");
 
-        if(passFragmentKeyword.equals("search")){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new SearchCompany()).commit();
-        }
-        else if (passFragmentKeyword.equals("list")){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new ViewCompany()).commit();
-        }
-        else if (passFragmentKeyword.equals("add")){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new AddCompany()).commit();
-        }
-        else if (passFragmentKeyword.equals("edit")){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new UpdateCompany()).commit();
-        }
-
-
-
-
+        int selectFragmentId = intent2.getIntExtra("FRAGMENT_NAME", 0);
+        fragmentSelector(selectFragmentId);
 
 
     }
 
+    private void fragmentSelector(int selectFragmentId) {
+
+        switch (selectFragmentId) {
+            case R.id.nav_home:
+                intent = new Intent(getApplicationContext(), HomeCompany.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_search:
+                selectedFragment = new SearchCompany();
+                break;
+            case R.id.nav_edit:
+                selectedFragment = new UpdateCompany();
+                break;
+            case R.id.nav_add:
+                selectedFragment = new AddCompany();
+                break;
+            case R.id.nav_view:
+                selectedFragment = new ViewCompany();
+                break;
+            case 0:
+                toastMessage("Error fragment id");
+
+        }
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                selectedFragment).commit();
+    }
     private BottomNavigationView.OnNavigationItemSelectedListener navListner =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                    Fragment selectedFragment = null;
 
-                    switch (item.getItemId()) {
-                        case R.id.nav_home:
-                            intent = new Intent(getApplicationContext(), HomeCompany.class);
-                            startActivity(intent);
-                            break;
-                        case R.id.nav_search:
-                            selectedFragment = new SearchCompany();
-                            break;
-                        case R.id.nav_edit:
-                            selectedFragment = new UpdateCompany();
-                            break;
-                        case R.id.nav_add:
-                            selectedFragment = new AddCompany();
-                            break;
-                        case R.id.nav_view:
-                            selectedFragment = new ViewCompany();
-                            break;
-
-                    }
-
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            selectedFragment).commit();
+                    fragmentSelector(item.getItemId());
                     return true;
                 }
             };
