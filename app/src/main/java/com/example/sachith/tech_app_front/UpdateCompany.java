@@ -62,7 +62,7 @@ public class UpdateCompany extends Fragment implements CompanyAdapter.OnItemClic
     }
 
 
-    private void getData() {
+    public void getData() {
         final ProgressDialog progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("Loading Data");
         progressDialog.show();
