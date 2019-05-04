@@ -137,15 +137,15 @@ public class UpdateCompany extends Fragment implements CompanyAdapter.OnItemClic
 
         Company clickedCompany = companyList.get(posistion);
 
-        Activity2 activity2 = new Activity2();
+        EditCompanyDialog companyDialog = new EditCompanyDialog();
         Bundle bundle = new Bundle();
         bundle.putString("name" , clickedCompany.getName());
         bundle.putString("address" , clickedCompany.getAddress());
         bundle.putString("contactNum",clickedCompany.getContactNum());
         bundle.putString("web" , clickedCompany.getWeb());
         bundle.putString("description" , clickedCompany.getDescription());
-        activity2.setArguments(bundle);
-        activity2.show(getFragmentManager(),"My dialog");
+        companyDialog.setArguments(bundle);
+        companyDialog.show(getFragmentManager(),"My dialog");
 
     }
 }

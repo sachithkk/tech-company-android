@@ -113,6 +113,7 @@
             android:layout_marginTop="500dp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:background="@drawable/button_green_round"
             android:layout_centerHorizontal="true"
             android:text="@string/but_2_name" />
 
