@@ -82,6 +82,7 @@ public class ViewCompany extends Fragment implements CompanyAdapter.OnItemClickL
     private void getData() {
         final ProgressDialog progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("Loading Data");
+        progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.show();
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
@@ -101,6 +102,7 @@ public class ViewCompany extends Fragment implements CompanyAdapter.OnItemClickL
                                 if(object.getString("status").toString().equalsIgnoreCase("ACTIVE")) {
                                     Company company = new Company();
 
+                                    company.setId(object.getInt("id"));
                                     company.setName(object.getString("name"));
                                     company.setAddress(object.getString("address"));
                                     company.setContactNum(object.getString("contactNumber"));

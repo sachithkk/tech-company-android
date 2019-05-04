@@ -2,6 +2,7 @@ package com.example.sachith.tech_app_front.domain;
 
 public class Company {
 
+    private int id;
     private String name;
     private String address;
     private String contactNum;
@@ -10,13 +11,16 @@ public class Company {
 
     public Company () { }
 
-    public Company(String name, String address, String contactNum, String web, String description) {
+    public Company(int id, String name, String address, String contactNum, String web, String description) {
+        this.id = id;
         this.name = name;
         this.address = address;
         this.contactNum = contactNum;
         this.web = web;
         this.description = description;
     }
+
+    public  int getId(){return id;}
 
     public String getName() {
         return name;
@@ -37,6 +41,8 @@ public class Company {
     public String getDescription() {
         return description;
     }
+
+    public void setId(int id){this.id = id;}
 
     public void setName(String name) {
         this.name = name;

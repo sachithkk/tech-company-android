@@ -45,7 +45,7 @@ public class Activity2 extends DialogFragment {
         companyAddres.setText(address);
         companyContact.setText(contact);
 
-
+//        DialogFragment.getDialog().setCanceledOnTouchOutside(false);
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
