@@ -58,8 +58,6 @@ public class ViewCompany extends Fragment implements CompanyAdapter.OnItemClickL
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.view_company, container, false);
-        View popUp = inflater.inflate(R.layout.activity_2,container,false);
-
         mList = view.findViewById(R.id.company_list);
 
         companyList = new ArrayList<>();
