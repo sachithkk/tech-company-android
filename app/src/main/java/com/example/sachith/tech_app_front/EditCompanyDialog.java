@@ -183,21 +183,12 @@ public class EditCompanyDialog extends DialogFragment {
                                 builder1.setCancelable(true);
 
                                 builder1.setPositiveButton(
-                                        "Yes",
+                                        "Ok",
                                         new DialogInterface.OnClickListener() {
                                             public void onClick(DialogInterface dialog, int id) {
                                                 dialog.cancel();
                                             }
                                         });
-
-                                builder1.setNegativeButton(
-                                        "No",
-                                        new DialogInterface.OnClickListener() {
-                                            public void onClick(DialogInterface dialog, int id) {
-                                                dialog.cancel();
-                                            }
-                                        });
-
                                 AlertDialog alert11 = builder1.create();
                                 alert11.setCanceledOnTouchOutside(false);
                                 alert11.show();
@@ -269,6 +260,22 @@ public class EditCompanyDialog extends DialogFragment {
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
+                        AlertDialog.Builder builder1 = new AlertDialog.Builder(getContext());
+                        builder1.setTitle("Error Message");
+                        builder1.setMessage("Unknown Error Occurred, check you network connection.");
+                        builder1.setCancelable(true);
+
+                        builder1.setPositiveButton(
+                                "Ok",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                    }
+                                });
+
+                        AlertDialog alert11 = builder1.create();
+                        alert11.setCanceledOnTouchOutside(false);
+                        alert11.show();
                     }
                 });
         requestQueue.add(jsonObjectRequest);
