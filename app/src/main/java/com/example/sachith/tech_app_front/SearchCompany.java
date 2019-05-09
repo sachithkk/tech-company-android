@@ -32,7 +32,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchCompany extends Fragment {
+public class SearchCompany extends Fragment implements CompanyAdapter.OnItemClickListener{
 
     private RecyclerView mList;
     private LinearLayoutManager linearLayoutManager;
@@ -155,7 +155,7 @@ public class SearchCompany extends Fragment {
         }
         adapter = new CompanyAdapter(R.layout.single_company, getContext(), companyList);
         mList.setAdapter(adapter);
-//                            adapter.setOnItemClickListener(ViewCompany.this);
+        adapter.setOnItemClickListener(SearchCompany.this);
 
         adapter.notifyDataSetChanged();
 
@@ -163,6 +163,23 @@ public class SearchCompany extends Fragment {
 
     private void toastMessage(String message){
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onItemClick(int posistion) {
+
+        Company clickedCompany = companyList.get(posistion);
+
+        Activity2 activity2 = new Activity2();
+        Bundle bundle = new Bundle();
+        bundle.putString("name" , clickedCompany.getName());
+        bundle.putString("address" , clickedCompany.getAddress());
+        bundle.putString("contactNum",clickedCompany.getContactNum());
+        bundle.putString("web" , clickedCompany.getWeb());
+        bundle.putString("description" , clickedCompany.getDescription());
+        activity2.setArguments(bundle);
+        activity2.show(getFragmentManager(),"My dialog");
+
     }
 
 
