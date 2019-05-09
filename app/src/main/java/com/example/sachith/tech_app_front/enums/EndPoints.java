@@ -2,9 +2,9 @@ package com.example.sachith.tech_app_front.enums;
 
 public enum EndPoints {
 
-    CREATE_COMPANY("http://192.168.1.3:8080/tech/companies/create"),
-    GET_ALL_COMPANY("http://192.168.1.3:8080/tech/companies"),
-    COMPANY("http://192.168.1.3:8080/tech/companies/");
+    CREATE_COMPANY("https://ctse-tech-com-app.herokuapp.com/tech/companies/create"),
+    GET_ALL_COMPANY("https://ctse-tech-com-app.herokuapp.com/tech/companies"),
+    COMPANY("https://ctse-tech-com-app.herokuapp.com/tech/companies/");
 
     private String url;
 
