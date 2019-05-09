@@ -10,11 +10,19 @@
         android:layout_height="wrap_content">
         <TextView
             android:id="@+id/main_name"
-            android:layout_width="250dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:text="Company Name "
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:drawableRight="@drawable/ic_edit_black_24dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:drawableRight="@drawable/ic_delete_black_24dp"/>
     </LinearLayout>
 
     <TextView
