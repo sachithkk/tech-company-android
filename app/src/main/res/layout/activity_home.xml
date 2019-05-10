@@ -18,14 +18,16 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_centerHorizontal="true"
-            app:errorEnabled="true">
+            app:errorEnabled="true"
+            >
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/child_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Company Name"
-                android:inputType="text" />
+                android:inputType="text"
+                android:drawableLeft="@drawable/ic_account_balance_black_24dp"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -44,7 +46,8 @@
                 android:layout_height="wrap_content"
                 android:hint="Address"
                 android:inputType="text"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:drawableLeft="@drawable/ic_format_align_center_black_24dp"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -63,7 +66,8 @@
                 android:layout_height="wrap_content"
                 android:hint="Domain Name"
                 android:inputType="text"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:drawableLeft="@drawable/ic_language_black_24dp"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -82,7 +86,8 @@
                 android:layout_height="wrap_content"
                 android:hint="Contact Number"
                 android:inputType="text"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:drawableLeft="@drawable/ic_call_black_24dp"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -103,7 +108,8 @@
                 android:inputType="text"
                 android:maxLines="20"
                 android:textSize="20sp"
-                android:scrollbars="vertical"/>
+                android:scrollbars="vertical"
+                android:drawableLeft="@drawable/ic_airplay_black_24dp"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -115,7 +121,9 @@
             android:layout_alignParentBottom="true"
             android:background="@drawable/button_green_round"
             android:layout_centerHorizontal="true"
-            android:text="@string/but_2_name" />
+            android:text="@string/but_2_name"
+            android:paddingLeft="5dp"
+            android:drawableLeft="@drawable/ic_add_circle_outline_black_24dp"/>
 
     </RelativeLayout>
 

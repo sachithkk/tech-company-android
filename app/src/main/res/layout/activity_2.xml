@@ -36,7 +36,8 @@
                     android:layout_marginRight="20dp"
                     android:textAlignment="center"
                     android:textStyle="bold"
-                    android:textSize="25dp"/>
+                    android:textSize="25dp"
+                    android:drawableLeft="@drawable/ic_account_balance_black_24dp"/>
 
                 <TextView
                     android:id="@+id/view_company_address"
@@ -46,7 +47,8 @@
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="10dp"
                     android:textAlignment="center"
-                    android:textSize="15dp" />
+                    android:textSize="15dp"
+                    android:drawableLeft="@drawable/ic_format_align_center_black_24dp"/>
 
                 <TextView
                     android:id="@+id/view_company_description"
@@ -56,7 +58,8 @@
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="10dp"
                     android:textAlignment="center"
-                    android:textSize="15dp" />
+                    android:textSize="15dp"
+                    android:drawableLeft="@drawable/ic_airplay_black_24dp"/>
 
                 <TextView
                     android:id="@+id/view_company_contact"
@@ -66,7 +69,8 @@
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="10dp"
                     android:textAlignment="center"
-                    android:textSize="15dp"/>
+                    android:textSize="15dp"
+                    android:drawableLeft="@drawable/ic_call_black_24dp"/>
 
                 <TextView
                     android:id="@+id/view_company_web"
@@ -76,7 +80,8 @@
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="10dp"
                     android:textAlignment="center"
-                    android:textSize="15dp"/>
+                    android:textSize="15dp"
+                    android:drawableLeft="@drawable/ic_language_black_24dp"/>
 
                 <Button
                     android:id="@+id/popup_close"
@@ -86,7 +91,8 @@
                     android:text="ok"
                     android:background="@drawable/button_green_round"
                     android:layout_gravity="center_horizontal"
-                    />
+                    android:paddingLeft="5dp"
+                    android:drawableLeft="@drawable/ic_check_black_24dp"/>
 
 
             </LinearLayout>
