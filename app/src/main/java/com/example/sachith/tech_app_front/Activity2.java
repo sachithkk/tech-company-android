@@ -17,7 +17,8 @@ import com.example.sachith.tech_app_front.domain.Company;
 public class Activity2 extends DialogFragment {
 
     private TextView companyName,companyWeb,companyAddres,companyContact,companyDesc;
-    Button closeButton;
+    private Button closeButton;
+    public static final String WEB_SITE = null;
 
     @Nullable
     @Override
@@ -44,6 +45,15 @@ public class Activity2 extends DialogFragment {
         companyDesc.setText(description);
         companyAddres.setText(address);
         companyContact.setText(contact);
+
+        companyWeb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), CompanyWebSite.class);
+                intent.putExtra(WEB_SITE, companyWeb.getText().toString());
+                startActivity(intent);
+            }
+        });
 
 //        DialogFragment.getDialog().setCanceledOnTouchOutside(false);
         closeButton.setOnClickListener(new View.OnClickListener() {

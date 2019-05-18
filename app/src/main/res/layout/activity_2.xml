@@ -81,7 +81,8 @@
                     android:layout_marginBottom="10dp"
                     android:textAlignment="center"
                     android:textSize="15dp"
-                    android:drawableLeft="@drawable/ic_language_black_24dp"/>
+                    android:drawableLeft="@drawable/ic_language_black_24dp"
+                    android:drawableRight="@drawable/ic_web_black_24dp"/>
 
                 <Button
                     android:id="@+id/popup_close"

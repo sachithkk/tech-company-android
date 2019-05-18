@@ -20,7 +20,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 .withSplashTimeOut(5000)
                 .withBackgroundColor(Color.parseColor("#95a5a6"))
                 .withLogo(R.mipmap.logo)
-                .withAfterLogoText("TechCom");
+                .withFooterText("TechCom 1.0");
 
 
         View splashView = splashScreen.create();
