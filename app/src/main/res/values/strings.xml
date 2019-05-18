@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Tech Com</string>
+    <string name="app_name">TechCom</string>
     <string name="but_1_name">Parse</string>
     <string name="but_2_name">Add</string>
     <string name="search_btn">Search Company</string>
