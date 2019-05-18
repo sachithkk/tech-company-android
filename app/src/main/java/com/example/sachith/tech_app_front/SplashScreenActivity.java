@@ -1,8 +1,8 @@
 package com.example.sachith.tech_app_front;
 
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import gr.net.maroulis.library.EasySplashScreen;

@@ -7,7 +7,7 @@
     android:layout_marginLeft="25dp"
     android:layout_marginRight="25dp"
     android:gravity="center"
-    tools:context=".Activity2">
+    tools:context=".ViewSingleCompany">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"

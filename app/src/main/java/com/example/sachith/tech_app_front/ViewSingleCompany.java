@@ -1,20 +1,19 @@
 package com.example.sachith.tech_app_front;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.sachith.tech_app_front.domain.Company;
-
-public class Activity2 extends DialogFragment {
+public class ViewSingleCompany extends DialogFragment {
 
     private TextView companyName,companyWeb,companyAddres,companyContact,companyDesc;
     private Button closeButton;
@@ -24,7 +23,7 @@ public class Activity2 extends DialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.activity_2, container,false);
+        View view = inflater.inflate(R.layout.single_company_view, container,false);
 
         companyName = view.findViewById(R.id.view_company_name);
         companyWeb = view.findViewById(R.id.view_company_web);
@@ -49,13 +48,15 @@ public class Activity2 extends DialogFragment {
         companyWeb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                companyWeb.setBackgroundColor(Color.parseColor("#a4b0be"));
+                companyWeb.setPaintFlags(companyWeb.getPaintFlags() |   Paint.UNDERLINE_TEXT_FLAG);
+
                 Intent intent = new Intent(getContext(), CompanyWebSite.class);
                 intent.putExtra(WEB_SITE, companyWeb.getText().toString());
                 startActivity(intent);
             }
         });
 
-//        DialogFragment.getDialog().setCanceledOnTouchOutside(false);
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

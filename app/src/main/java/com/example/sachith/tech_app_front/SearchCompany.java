@@ -81,7 +81,6 @@ public class SearchCompany extends Fragment implements CompanyAdapter.OnItemClic
             }
         });
 
-
         return view;
 
 
@@ -125,7 +124,6 @@ public class SearchCompany extends Fragment implements CompanyAdapter.OnItemClic
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         requestQueue.add(jsonObjectRequest);
 
-
     }
 
     private void filterData() {
@@ -146,8 +144,6 @@ public class SearchCompany extends Fragment implements CompanyAdapter.OnItemClic
 
                     companyList.add(company);
                 }
-
-
             }
 
         }catch (JSONException e) {
@@ -170,17 +166,16 @@ public class SearchCompany extends Fragment implements CompanyAdapter.OnItemClic
 
         Company clickedCompany = companyList.get(posistion);
 
-        Activity2 activity2 = new Activity2();
+        ViewSingleCompany viewSingleCompany = new ViewSingleCompany();
         Bundle bundle = new Bundle();
         bundle.putString("name" , clickedCompany.getName());
         bundle.putString("address" , clickedCompany.getAddress());
         bundle.putString("contactNum",clickedCompany.getContactNum());
         bundle.putString("web" , clickedCompany.getWeb());
         bundle.putString("description" , clickedCompany.getDescription());
-        activity2.setArguments(bundle);
-        activity2.show(getFragmentManager(),"My dialog");
+        viewSingleCompany.setArguments(bundle);
+        viewSingleCompany.show(getFragmentManager(),"My dialog");
 
     }
-
 
 }

@@ -7,15 +7,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.DialogFragment;
-import android.text.Editable;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -405,55 +401,6 @@ public class EditCompanyDialog extends DialogFragment {
                 getDialog().dismiss();
             }
         });
-    }
-
-    /*
-     * These method used for validate Listener
-     *
-     * */
-    private void validateEditCompany(Editable s) {
-        if (TextUtils.isEmpty(s)) {
-            companyName.setError("This field required");
-        }
-        else{
-            companyName.setError(null);
-        }
-    }
-
-    private void validateEditCity(Editable s) {
-        if (TextUtils.isEmpty(s)) {
-            companyWeb.setError("This field required");
-        }
-        else{
-            companyWeb.setError(null);
-        }
-    }
-
-    private void validateEditAddress(Editable s) {
-        if (TextUtils.isEmpty(s)) {
-            companyAddres.setError("This field required");
-        }
-        else{
-            companyAddres.setError(null);
-        }
-    }
-
-    private void validateEditDescription(Editable s) {
-        if (TextUtils.isEmpty(s)) {
-            companyDesc.setError("This field required");
-        }
-        else{
-            companyDesc.setError(null);
-        }
-    }
-
-    private void validateEditCompanyContact(Editable s) {
-        if (TextUtils.isEmpty(s)) {
-            companyContact.setError("This field required");
-        }
-        else{
-            companyContact.setError(null);
-        }
     }
 
     /*

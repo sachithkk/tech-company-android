@@ -25,7 +25,6 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.sachith.tech_app_front.enums.EndPoints;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -56,25 +55,18 @@ public class AddCompany extends Fragment{
         builder = new AlertDialog.Builder(getContext());
 
         View view = inflater.inflate(R.layout.activity_home, container,false);
-        //buttonParse      = view.findViewById(R.id.btn_1);
-        companyName      = view.findViewById(R.id.company_name);
-        website             = view.findViewById(R.id.company_website);
-        address          = view.findViewById(R.id.company_address);
-        companyDescription = view.findViewById(R.id.company_description);
-        companyContact   = view.findViewById(R.id.company_contact);
-        buttonSend       = view.findViewById(R.id.btn_2);
-        c_name           = view.findViewById(R.id.child_name);
-        c_webSite           = view.findViewById(R.id.child_website);
-        c_address        = view.findViewById(R.id.child_address);
-        c_description    = view.findViewById(R.id.child_description);
-        c_contact        = view.findViewById(R.id.child_contact);
 
-//        buttonParse.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                parseJson();
-//            }
-//        });
+        companyName         = view.findViewById(R.id.company_name);
+        website             = view.findViewById(R.id.company_website);
+        address             = view.findViewById(R.id.company_address);
+        companyDescription  = view.findViewById(R.id.company_description);
+        companyContact      = view.findViewById(R.id.company_contact);
+        buttonSend          = view.findViewById(R.id.btn_2);
+        c_name              = view.findViewById(R.id.child_name);
+        c_webSite           = view.findViewById(R.id.child_website);
+        c_address           = view.findViewById(R.id.child_address);
+        c_description       = view.findViewById(R.id.child_description);
+        c_contact           = view.findViewById(R.id.child_contact);
 
         buttonSend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -247,7 +239,6 @@ public class AddCompany extends Fragment{
                         });
                         AlertDialog alert = builder.create();
                         alert.show();
-                        //Toast.makeText(getApplicationContext(),responseObj.getString("message"), Toast.LENGTH_SHORT).show();
                     }
                     else if(response.getString("responseCode").toString().equalsIgnoreCase("000")){
                         if(responseObj.getString("code").toString().equalsIgnoreCase("001")){
@@ -271,42 +262,6 @@ public class AddCompany extends Fragment{
         requestQueue.add(jsonObjectRequest);
     }
 
-    private void parseJson() {
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, EndPoints.GET_ALL_COMPANY.getUrl(),
-                null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    JSONArray jsonArrayRequest = response.getJSONArray("responseObject");
-
-                    for(int i = 0 ; i < jsonArrayRequest.length() ; i++){
-                        JSONObject employee = jsonArrayRequest.getJSONObject(i);
-
-                        int age = employee.getInt("id");
-                        String firstName = employee.getString("city");
-
-                        //textView.append(firstName + ", "+ age+"\n\n");
-
-                    }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
-        });
-
-        requestQueue.add(jsonObjectRequest);
-    }
-
-
-    public void initComponent(LayoutInflater inflater ,ViewGroup container){
-//        View view = inflater.inflate(R.layout.activity_home, container,false);
-    }
 
     private void initTextChangeListerner(){
 
