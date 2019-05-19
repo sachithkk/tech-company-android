@@ -120,7 +120,7 @@ public class SearchCompany extends Fragment implements CompanyAdapter.OnItemClic
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        toastMessage("error");
+                        toastMessage("Please Check Network connection, Cannot Connect to the Internet");
                         progressDialog.dismiss();
                         System.out.println("ERRORRR : " + error);
                     }

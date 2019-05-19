@@ -258,7 +258,7 @@ public class AddCompany extends Fragment{
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getContext(),"Please check your internet connection", Toast.LENGTH_SHORT);
+                Toast.makeText(getContext(),"Please Check Network connection, Cannot Connect to the Internet", Toast.LENGTH_SHORT);
             }
         });
 
