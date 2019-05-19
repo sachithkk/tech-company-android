@@ -1,3 +1,8 @@
+/**
+ *
+ * Created by Sajith Priyankara
+ *
+ **/
 package com.example.sachith.tech_app_front;
 
 import android.content.Intent;
@@ -37,6 +42,7 @@ public class CompanyWebSite extends AppCompatActivity {
         }
     }
 
+    //method to show toast massage
     private void toastMessage(String message){
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }

@@ -1,3 +1,8 @@
+/**
+ *
+ * Created by Sachith Tharaka
+ *
+ **/
 package com.example.sachith.tech_app_front;
 
 import android.content.Intent;
@@ -7,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+//class to manage menu of the application
 public class HomeCompany extends AppCompatActivity {
 
     Button search_btn, edit_btn, view_btn, add_btn;

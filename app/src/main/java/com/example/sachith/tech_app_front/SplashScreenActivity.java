@@ -1,3 +1,9 @@
+/**
+ *
+ * Created by Sajith Priyankara
+ *
+**/
+
 package com.example.sachith.tech_app_front;
 
 import android.graphics.Color;
@@ -7,6 +13,7 @@ import android.view.View;
 
 import gr.net.maroulis.library.EasySplashScreen;
 
+// this class is to display and create the splash screen of the app
 public class SplashScreenActivity extends AppCompatActivity {
 
     @Override
@@ -19,7 +26,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 .withTargetActivity(HomeCompany.class)
                 .withSplashTimeOut(5000)
                 .withBackgroundColor(Color.parseColor("#95a5a6"))
-                .withLogo(R.mipmap.logo)
+                .withLogo(R.mipmap.splash_logo_round)
                 .withFooterText("TechCom 1.0");
 
 

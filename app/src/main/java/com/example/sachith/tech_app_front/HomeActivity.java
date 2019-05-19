@@ -1,3 +1,8 @@
+/**
+ *
+ * Created by Sajith Priyankara
+ *
+ **/
 package com.example.sachith.tech_app_front;
 
 import android.content.Intent;
@@ -16,15 +21,14 @@ import android.widget.Toast;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
+//this class to load the fragment to the home screen
 public class HomeActivity extends AppCompatActivity {
 
-    //private static TextView textView;
     private static Button buttonParse , buttonSend;
     private Intent intent;
     private static TextInputLayout companyName,city,address;
     private static AlertDialog.Builder builder;
     private static TextInputEditText c_name,c_city,c_address;
-
     private static RequestQueue requestQueue;
     private Fragment selectedFragment =null;
 
@@ -48,6 +52,7 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+    //method to select fragment which user selected on the menu
     private void fragmentSelector(int selectFragmentId) {
 
         switch (selectFragmentId) {
@@ -85,6 +90,7 @@ public class HomeActivity extends AppCompatActivity {
                 }
             };
 
+    //method to show toast message
     private void toastMessage(String message){
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }

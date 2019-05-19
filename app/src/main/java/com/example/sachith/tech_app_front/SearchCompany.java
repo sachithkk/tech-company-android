@@ -1,3 +1,8 @@
+/**
+ *
+ * Created by Sajith Priyankara
+ *
+ **/
 package com.example.sachith.tech_app_front;
 
 import android.app.ProgressDialog;
@@ -32,6 +37,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+// method to search company and view details
 public class SearchCompany extends Fragment implements CompanyAdapter.OnItemClickListener{
 
     private RecyclerView mList;
@@ -86,6 +92,7 @@ public class SearchCompany extends Fragment implements CompanyAdapter.OnItemClic
 
     }
 
+    // method to get data from database
     private void getData() {
         final ProgressDialog progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("Loading Data");
@@ -126,6 +133,8 @@ public class SearchCompany extends Fragment implements CompanyAdapter.OnItemClic
 
     }
 
+    // method use to filter data
+    // when user type in the text box this method will be called
     private void filterData() {
 
         try {
@@ -157,6 +166,7 @@ public class SearchCompany extends Fragment implements CompanyAdapter.OnItemClic
 
     }
 
+    // method to display toast message
     private void toastMessage(String message){
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }

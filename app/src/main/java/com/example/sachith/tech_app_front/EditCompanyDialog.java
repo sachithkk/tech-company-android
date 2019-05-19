@@ -1,3 +1,9 @@
+/**
+ *
+ * Created by Sachith Tharaka
+ *
+ **/
+
 package com.example.sachith.tech_app_front;
 
 import android.app.AlertDialog;
@@ -27,6 +33,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
+// class to show the edit / delete a company
 public class EditCompanyDialog extends DialogFragment {
 
     /*
@@ -147,6 +154,7 @@ public class EditCompanyDialog extends DialogFragment {
 
     }
 
+    //method to update a company
     private void updateCompany(int companyId){
         if(checkInputs()){
 
@@ -393,6 +401,7 @@ public class EditCompanyDialog extends DialogFragment {
         requestQueue.add(jsonObjectRequest);
     }
 
+    //method to cancel edit window
     private void cancelEditWindow(){
 
         cancel.setOnClickListener(new View.OnClickListener() {
@@ -458,6 +467,7 @@ public class EditCompanyDialog extends DialogFragment {
 
     }
 
+    // this method will check inputs of user
     private boolean checkInputs(){
         if(validateCompanyName() & validateCity() & validateAddress() & validateCompanyDescription() & validateCompanyContact()){
             return true;

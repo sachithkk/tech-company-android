@@ -1,3 +1,8 @@
+/**
+ *
+ * Created by Sachith Tharaka
+ *
+ **/
 package com.example.sachith.tech_app_front;
 
 import android.app.ProgressDialog;
@@ -29,6 +34,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+//class to update and delete company
 public class UpdateCompany extends Fragment implements CompanyAdapter.OnItemClickListener{
 
     private RecyclerView mList;
@@ -62,6 +68,7 @@ public class UpdateCompany extends Fragment implements CompanyAdapter.OnItemClic
     }
 
 
+    // method help to get data from the backend
     public void getData() {
         final ProgressDialog progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("Loading Data");
@@ -127,8 +134,7 @@ public class UpdateCompany extends Fragment implements CompanyAdapter.OnItemClic
 
     }
 
-
-
+    //this method is to display toast messages
     private void toastMessage(String message){
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }

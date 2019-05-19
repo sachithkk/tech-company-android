@@ -1,5 +1,11 @@
+/**
+ *
+ * Created by Sajith Priyankara
+ *
+ **/
 package com.example.sachith.tech_app_front.domain;
 
+// this class help to manage company information
 public class Company {
 
     private int id;

@@ -1,3 +1,9 @@
+/**
+ *
+ * Created by Sajith Priyankara
+ *
+ **/
+
 package com.example.sachith.tech_app_front;
 
 import android.content.Context;
@@ -12,6 +18,7 @@ import com.example.sachith.tech_app_front.domain.Company;
 
 import java.util.List;
 
+//This class help to create company adapter
 public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.ViewHolder> {
 
     private Context context;
@@ -52,6 +59,7 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.ViewHold
             holder.txt_address.setText("Address : " + company.getAddress());
             holder.txt_web.setText("Web Site : " + company.getWeb());
     }
+
 
     @Override
     public int getItemCount() {

@@ -1,3 +1,8 @@
+/**
+ *
+ * Created by Sachith Tharaka
+ *
+ **/
 package com.example.sachith.tech_app_front;
 
 import android.content.DialogInterface;
@@ -30,21 +35,13 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
+//this class handles adding a tech company
 public class AddCompany extends Fragment{
 
-    /*
-     * https://stackoverflow.com/questions/51889837/cannot-connect-to-localhost-api-from-android-app --> for how to work api with real android device.
-     *
-     *
-     */
-
-    //private static TextView textView;
-    private static Button buttonParse , buttonSend;
-
+    private static Button buttonSend;
     private static TextInputLayout companyName,website,address,companyDescription,companyContact;
     private static AlertDialog.Builder builder;
     private static TextInputEditText c_name,c_webSite,c_address,c_description,c_contact;
-
     private static RequestQueue requestQueue;
 
     @Nullable
@@ -83,8 +80,7 @@ public class AddCompany extends Fragment{
     }
 
     /*
-     * These method used for validate Listener
-     *
+     * this method used for validate company name
      * */
     private void validateEditCompany(Editable s) {
         if (TextUtils.isEmpty(s)) {
@@ -95,6 +91,7 @@ public class AddCompany extends Fragment{
         }
     }
 
+    //this method use for validate city
     private void validateEditCity(Editable s) {
         if (TextUtils.isEmpty(s)) {
             website.setError("This field required");
@@ -104,6 +101,7 @@ public class AddCompany extends Fragment{
         }
     }
 
+    //this method use for validate address of the company
     private void validateEditAddress(Editable s) {
         if (TextUtils.isEmpty(s)) {
             address.setError("This field required");
@@ -113,6 +111,7 @@ public class AddCompany extends Fragment{
         }
     }
 
+    //this method use for validate description
     private void validateEditDescription(Editable s) {
         if (TextUtils.isEmpty(s)) {
             companyDescription.setError("This field required");
@@ -122,6 +121,7 @@ public class AddCompany extends Fragment{
         }
     }
 
+    //this method use for validate contact number
     private void validateEditCompanyContact(Editable s) {
         if (TextUtils.isEmpty(s)) {
             companyContact.setError("This field required");
@@ -133,7 +133,6 @@ public class AddCompany extends Fragment{
 
     /*
      *  When user clicked save button fire these method for validation.
-     *
      * */
     private boolean validateCompanyName(){
 
@@ -145,6 +144,7 @@ public class AddCompany extends Fragment{
 
     }
 
+    //this method use for validate city
     private boolean validateCity(){
 
         if(website.getEditText().getText().toString().trim().isEmpty()){
@@ -155,6 +155,7 @@ public class AddCompany extends Fragment{
 
     }
 
+    //this method use for validate address
     private boolean validateAddress(){
 
         if(address.getEditText().getText().toString().trim().isEmpty()){
@@ -165,7 +166,7 @@ public class AddCompany extends Fragment{
 
     }
 
-
+    //this method use for validate Description
     private boolean validateCompanyDescription(){
 
         if(companyDescription.getEditText().getText().toString().trim().isEmpty()){
@@ -176,6 +177,7 @@ public class AddCompany extends Fragment{
 
     }
 
+    //this method use for validate contact number
     private boolean validateCompanyContact(){
 
         if(companyContact.getEditText().getText().toString().trim().isEmpty()){
@@ -186,6 +188,7 @@ public class AddCompany extends Fragment{
 
     }
 
+    //this method use for validate inputs of the user
     private boolean checkInputs(){
         if(validateCompanyName() & validateCity() & validateAddress() & validateCompanyDescription() & validateCompanyContact()){
             return true;
@@ -196,7 +199,7 @@ public class AddCompany extends Fragment{
     }
 
 
-
+    //this method will insert the company to the database
     private void companyCreate(){
 
         HashMap<String , String> hm = new HashMap<>();

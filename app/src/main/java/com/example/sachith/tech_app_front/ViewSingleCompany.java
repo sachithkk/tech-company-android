@@ -1,3 +1,8 @@
+/**
+ *
+ * Created by Sachith Tharaka
+ *
+ **/
 package com.example.sachith.tech_app_front;
 
 import android.content.Intent;
@@ -13,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+//class to display single company
 public class ViewSingleCompany extends DialogFragment {
 
     private TextView companyName,companyWeb,companyAddres,companyContact,companyDesc;
